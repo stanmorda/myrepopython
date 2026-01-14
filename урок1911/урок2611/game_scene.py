@@ -20,7 +20,7 @@ class MenuScene(Scene):
     def handle_events(self, events):
         for event in events:
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RETURN:
+                if event.key == pygame.K_w:
                     return GameScene() # Переход в игру по Enter
         return self
 
@@ -71,7 +71,7 @@ class GameScene(Scene):
     def handle_events(self, events):
         for event in events:
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
+                if event.key == pygame.K_BACKSPACE:
                     return MenuScene() # Возврат в меню по Esc
                 
             # Наше событие ADDCOIN для создания монеты по таймеру
