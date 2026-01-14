@@ -48,6 +48,8 @@ class GameScene(Scene):
         self.score_count = 0
         self.one_coin_cost = 10
     
+        self.soundMoney = pygame.mixer.Sound('c:/Users/momentizm/Documents/Среда.Питон/урок1911/урок2611/coin.wav')
+    
         self.player = Player()
         self.deadCoin = DeadCoin()
         self.ADDCOIN = pygame.USEREVENT + 1
@@ -109,6 +111,7 @@ class GameScene(Scene):
         coins_collected = pygame.sprite.spritecollide(sprite=self.player, group=self.coin_list, dokill=True)
         for item in coins_collected:    
             self.score += self.one_coin_cost
+            self.soundMoney.play()
             if self.coin_countdown > 500:
                 self.coin_countdown -= 50
                 pygame.time.set_timer(self.ADDCOIN, 0) # остановили таймер
