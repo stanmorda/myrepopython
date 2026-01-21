@@ -20,7 +20,7 @@ class Cat(pygame.sprite.Sprite):
 class Bowl(pygame.sprite.Sprite):
     def __init__(self):
         # Вызов базового конструктора
-        super(Cat, self).__init__()
+        super(Bowl, self).__init__()
         
         # Загрузка изображения, настройка альфа-канал для прозрачности
         self.surf = pygame.image.load('C:/Users/momentizm/Documents/Среда.Питон/урок1911/урок2101/bowl.png').convert_alpha()

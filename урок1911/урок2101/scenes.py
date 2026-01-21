@@ -1,6 +1,10 @@
 import sprites
 import pygame
 
+
+WIDTH = 500
+HEIGHT = 500
+
 # --- Классы сцен ---
 class Scene:
     # обработка событий
@@ -30,8 +34,9 @@ class StartScene(Scene):
     def handle_events(self, events):
         for event in events:
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_KP_ENTER:
+                if event.key == pygame.K_RETURN:
                     return GameScene()
+        return self
                 
 class GameScene(Scene):
     def __init__(self):
@@ -39,6 +44,7 @@ class GameScene(Scene):
         self.bowl = sprites.Bowl()
     
     def draw(self, screen):
+        screen.fill((0, 150, 15))
         screen.blit(self.cat.surf, self.cat.rect) 
         screen.blit(self.bowl.surf, self.bowl.rect) 
     
@@ -48,4 +54,8 @@ class GameScene(Scene):
     
     # обработка событий
     def handle_events(self, events):
-        pass
+        for event in events:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    return StartScene()
+        return self
