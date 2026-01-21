@@ -16,10 +16,9 @@ while running:
             running = False
             
     scene = scene.handle_events(events)
-
     scene.update()
     scene.draw(screen)
     
     pygame.display.flip()
     
-    clock.tick()
+    clock.tick(60)
