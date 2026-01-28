@@ -13,8 +13,9 @@ class Cat(pygame.sprite.Sprite):
         # Добавление прямоугольника для перемещения объекта
         self.rect = self.surf.get_rect()
     
-    def update(self):
-        pass
+    def update(self, yCoor):
+        # Меняем координаты спрайта на координаты pos, которые получили из вне
+        self.rect.y = yCoor
         
         
 class Bowl(pygame.sprite.Sprite):
