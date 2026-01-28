@@ -53,7 +53,7 @@ class GameScene(Scene):
         screen.blit(self.cat.surf, self.cat.rect) 
         screen.blit(self.bowl.surf, self.bowl.rect) 
         self.font = pygame.font.SysFont('Arial', 32)
-        self.textScore = self.font.render(f"Score = {self.score}", True, (255, 255, 255))
+        self.textScore = self.font.render(f"Score = {self.score}, Speed = {self.speed}", True, (255, 255, 255))
         screen.blit(self.textScore, (10, 10))
     
     def reinitBowl(self): # функия для перекоординирования миски
@@ -65,13 +65,14 @@ class GameScene(Scene):
         # Получение координат мышки
         mouse_pos = pygame.mouse.get_pos()
         self.cat.update(mouse_pos[1])
-                
         self.bowl.update()
     
         if pygame.sprite.collide_rect(self.cat, self.bowl):
             self.reinitBowl()
             self.score += 1
-
+            
+        self.speed = 20 + (self.score//5) * 5
+        
     # обработка событий
     def handle_events(self, events):
         for event in events:
