@@ -42,16 +42,22 @@ class GameScene(Scene):
     def __init__(self):
         self.cat = sprites.Cat()
         self.bowl = sprites.Bowl()
+        self.bone = sprites.BoneBowl()
+        self.bone.rect.x = 100
+        self.bone.rect.y = 50
         self.reinitBowl()
         self.speed = 20
         self.score = 0
         self.MOVE_BOWL = pygame.USEREVENT + 1
         pygame.time.set_timer(self.MOVE_BOWL, 100) # 3 раза в секунду
         
+        
+        
     def draw(self, screen):
         screen.fill((0, 150, 15))
         screen.blit(self.cat.surf, self.cat.rect) 
         screen.blit(self.bowl.surf, self.bowl.rect) 
+        screen.blit(self.bone.surf, self.bone.rect) 
         self.font = pygame.font.SysFont('Arial', 32)
         self.textScore = self.font.render(f"Score = {self.score}, Speed = {self.speed}", True, (255, 255, 255))
         screen.blit(self.textScore, (10, 10))

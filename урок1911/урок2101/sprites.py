@@ -31,3 +31,17 @@ class Bowl(pygame.sprite.Sprite):
         
     def update(self):
         pass
+    
+class BoneBowl(pygame.sprite.Sprite):
+    def __init__(self):
+        # Вызов базового конструктора
+        super(BoneBowl, self).__init__()
+        
+        # Загрузка изображения, настройка альфа-канал для прозрачности
+        self.surf = pygame.image.load('C:/Users/momentizm/Documents/Среда.Питон/урок1911/урок2101/bone.png').convert_alpha()
+        
+        # Добавление прямоугольника для перемещения объекта
+        self.rect = self.surf.get_rect()
+        
+    def update(self):
+        pass
