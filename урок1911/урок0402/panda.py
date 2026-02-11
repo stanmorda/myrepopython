@@ -3,19 +3,19 @@ import matplotlib.pyplot as plt
 import random
 
 # Define a function to double the value
-def random_value(x):
-    return random.randint(10, 250)
+# def random_value(x):
+#     return random.randint(10, 250)
 
 
-df1 = pd.read_csv('C:/Users/momentizm/Documents/Среда.Питон/урок1911/урок0402/Internet Speed 2022.csv')
-df2 = pd.read_csv('copy_data.csv')
-for index, row in df1.iterrows():
-    country = row['country']
-    data1 = row['mobile']
-    row2 = df2[df2['country'] == country]
-    if row2 is not None:
-        data2 = row2['mobile']
-        print(country, data2-data1)
+# df1 = pd.read_csv('C:/Users/momentizm/Documents/Среда.Питон/урок1911/урок0402/Internet Speed 2022.csv')
+# df2 = pd.read_csv('copy_data.csv')
+# for index, row in df1.iterrows():
+#     country = row['country']
+#     data1 = row['mobile']
+#     row2 = df2[df2['country'] == country]
+#     if row2 is not None:
+#         data2 = row2['mobile']
+#         print(country, data2-data1)
 
 # # Apply the function to column 'A'
 # df['mobile'] = df['mobile'].apply(random_value)
