@@ -36,8 +36,8 @@ class LoginWindow(QWidget):
 class PasswordManager(QWidget):
     def __init__(self):
         super().__init__()
-        self.init_ui()
         self.init_database()
+        self.init_ui()
         
     def init_ui(self):
         self.setWindowTitle('My superb password manager!')
@@ -63,12 +63,13 @@ class PasswordManager(QWidget):
         login = self.login_input.text()
         password = self.password_input.text()
         if login != '' and password != '':
-            self.cursor.execute('INSERT INTO accounts VALUES (?, ?)', (login, password))
+            self.cursor.execute("INSERT INTO accounts VALUES (?, ?)", (login, password))
             self.conn.commit()
+            self.load_data_from_database()
     
     def load_data_from_database(self):
         self.list_widget.clear()
-        self.cursor.execute('SELECT login_name FROM accounts')
+        self.cursor.execute("SELECT login_name FROM accounts")
         for row in self.cursor.fetchall():
             self.list_widget.addItem(row[0])
 
